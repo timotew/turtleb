@@ -35,9 +35,10 @@ return [
         ],
 
         'database' => [
-            'driver' => 'database',
-            'table' => 'jobs',
-            'queue' => 'default',
+            'driver' => 'mongodb',
+            'table'  => 'jobs',
+            'queue'  => 'default',
+            'expire' => 60,
             'retry_after' => 90,
         ],
 
@@ -79,7 +80,7 @@ return [
     */
 
     'failed' => [
-        'database' => env('DB_CONNECTION', 'mysql'),
+        'database' => env('DB_CONNECTION', 'mongodb'),
         'table' => 'failed_jobs',
     ],
 
