@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Turtle',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Turtle</b>LTE',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>T</b>LT',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'yellow',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,6 +109,11 @@ return [
 
     'menu' => [
         'MAIN NAVIGATION',
+        [
+            'text' => 'Users',
+            'route' => 'pages.users',
+            'icon' => 'users'
+        ],
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
