@@ -182,13 +182,13 @@
         </script>
 
 
-        <script type="text/javascript" src="plugins/isotope/js/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="plugins/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="{{ asset('plugins/isotope/js/isotope.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('plugins/magnific-popup/js/jquery.magnific-popup.min.js') }}"></script>
 
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="{{ asset('js/jquery.core.js') }}"></script>
+        <script src="{{ asset('js/jquery.app.js') }}"></script>
 
 
 

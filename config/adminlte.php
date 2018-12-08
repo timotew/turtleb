@@ -30,9 +30,13 @@ return [
     |
     */
 
-    'logo' => '<b>Turtle</b>LTE',
+    'logo' => '<span>
+    <img src="/images/logo.png" alt="" height="30">
+</span>',
 
-    'logo_mini' => '<b>T</b>LT',
+    'logo_mini' => '<i>
+    <img src="/images/logo_sm.png" alt="" height="28">
+</i>',
 
     /*
     |--------------------------------------------------------------------------
@@ -112,81 +116,168 @@ return [
         [
             'text' => 'Users',
             'route' => 'pages.users',
-            'icon' => 'users'
         ],
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Properties',
+            'route' => 'pages.properties',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Conversion',
+            'route' => 'pages.conversion',
         ],
+        [
+            'text' => 'Packages',
+            'route' => 'pages.packages',
+        ],
+        [
+            'text' => 'Vouchers',
+            'route' => 'pages.vouchers',
+        ],
+        [
+            'text' => 'Purchased',
+            'route' => 'pages.purchased',
+        ],
+        [
+            'text' => 'Level Chart',
+            'route' => 'pages.level-chart',
+        ],
+        [
+            'text' => 'Add Notification',
+            'submenu' => [
+                [
+                    'text' => 'Email Notifications',
+                    'route' => 'pages.notifications.add.email',
+                ],
+                [
+                    'text' => 'Push Notification',
+                    'route' => 'pages.notifications.add.push',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Products',
+            'route' => 'pages.products',
+        ],
+        [
+            'text' => 'Spam',
+            'route' => 'pages.spam',
+        ],
+        [
+            'text'    => 'Staff',
+            'submenu' => [
+                [
+                    'text' => 'View',
+                    'route' => 'pages.staff',
+                ],
+        [
+            'text' => 'Add',
+            'route' => 'pages.staff.add',
+        ],
+        ]
+        ],
+        [
+            'text'    => 'Advertisements',
+            'submenu' => [
+        [
+            'text' => 'View',
+            'route' => 'pages.adverts',
+        ],
+        [
+            'text' => 'Add',
+            'route' => 'pages.adverts.add',
+        ],
+        ]
+        ],
+        [
+            'text' => 'Special Offer',
+            'submenu' => [
+                [
+                    'text' => 'View',
+                    'route' => 'pages.special-offers',
+                ],
+                [
+                    'text' => 'Add',
+                    'route' => 'pages.special-offers.add',
+                ],
+                ]
+        ],
+        [
+            'text' => 'Ask Me',
+            'route' => 'pages.ask-me',
+        ],
+        [
+            'text' => 'Social Circle',
+            'submenu' => [
+                [
+                    'text' => 'Articles',
+                    'route' => 'pages.social-circle.articles',
+
+                ],
+                [
+                    'text' => 'Categories',
+                    'route' => 'pages.social-circle.categories',
+
+                ],
+            ]
+            ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'route'  => 'pages.profile',
+
         ],
+        [
+            'text' => 'Wallet',
+            'route'  => 'pages.wallet',
+
+        ],
+        [
+            'text' => 'Moments',
+            'route'  => 'pages.moments',
+
+        ],
+        [
+            'text' => 'Chats',
+            'route'  => 'pages.chats',
+
+        ],
+        [
+            'text' => 'Contents',
+            'route'  => 'pages.contents',
+
+        ],
+        [
+            'text' => 'Money Transfer',
+            'route' => 'pages.money-transfer',
+        ],
+        [
+            'text' => 'Notifications',
+            'submenu' => [
+                [
+                    'text' => 'Email Notifications',
+                    'route'  => 'pages.notifications.email',
+
+                ],
+                [
+                    'text' => 'Push Notifications',
+                    'route'  => 'pages.notifications.push',
+
+                ],
+            ]
+        ],
+
         [
             'text' => 'Change Password',
             'url'  => 'admin/settings',
-            'icon' => 'lock',
+        ],
+        'RABBIT TEAM',
+        [
+            'text' => 'Rabbit Team',
+            'route'  => 'pages.rabbit-team',
         ],
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
-            'submenu' => [
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text' => 'Rabbit Team Post',
+            'route'  => 'pages.rabbit-team-post',
         ],
     ],
 
