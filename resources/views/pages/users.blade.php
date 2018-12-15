@@ -5,8 +5,8 @@
 @section('content_header')
     <h1>Users</h1>
     <ol class="breadcrumb">
-         <li class="breadcrumb-item"><a href="index.php?p=dashboard">Dashboard</a></li>
-         <li class="breadcrumb-item active">Users</li>
+         <li class="breadcrumb-item"><a href="index.php?p=dashboard">{{ __('users.users_list.breadcrumb.parent') }}</a></li>
+         <li class="breadcrumb-item active">{{ __('users.users_list.breadcrumb.child') }}</li>
      </ol>
 @stop
 
@@ -16,7 +16,7 @@
 <div class="row">
      <div class="col-12">
          <div class="card-box table-responsive">
-             <h4 class="m-t-0 header-title">Users List</h4>
+             <h4 class="m-t-0 header-title">{{ __('users.users_list.list_title') }}</h4>
              <!-- <p class="text-muted font-14 m-b-30">
                  The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
              </p> -->
@@ -25,17 +25,16 @@
              <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
                  <thead>
                  <tr>
-                     <th>S.No.</th>
-                     <th>Name</th>
-                     <th>Age</th>
-
-                     <th>Gender</th>
-                     <th>Email ID</th>
-                     <th>Phone</th>
-                     <th>Location</th>
-                     <th>Date of Reg.</th>
-                     <th>Status</th>
-                     <th>Action</th>
+                     <th>{{ __('users.users_list.table_header.sn') }}</th>
+                     <th>{{ __('users.users_list.table_header.name') }}</th>
+                     <th>{{ __('users.users_list.table_header.age') }}</th>
+                     <th>{{ __('users.users_list.table_header.gender') }}</th>
+                     <th>{{ __('users.users_list.table_header.email') }}</th>
+                     <th>{{ __('users.users_list.table_header.phone') }}</th>
+                     <th>{{ __('users.users_list.table_header.location') }}</th>
+                     <th>{{ __('users.users_list.table_header.reg_date') }}</th>
+                     <th>{{ __('users.users_list.table_header.status') }}</th>
+                     <th>{{ __('users.users_list.table_header.action') }}</th>
                  </tr>
                  </thead>
 

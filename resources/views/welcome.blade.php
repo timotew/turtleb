@@ -13,11 +13,12 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background: linear-gradient(145deg, #da0000, #ca7900);
             }
 
             .full-height {
@@ -49,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
