@@ -32,15 +32,6 @@ class HomeController extends Controller
         return view('pages.users');
     }
 
-    public function staff()
-    {
-        return view('pages.staff.view');
-    }
-
-    public function add_staff()
-    {
-        return view('pages.staff.add');
-    }
 
     public function add_advert()
     {

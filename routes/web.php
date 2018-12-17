@@ -17,12 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('staff', 'AdminController')->names([
+    'create' => 'staff.create',
+    'index' => 'staff.index',
+    'store' => 'staff.store'
+]);;
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adverts/add', 'HomeController@add_advert')->name('pages.adverts.add');
 Route::get('/adverts', 'HomeController@view_adverts')->name('pages.adverts');
 Route::get('/users', 'HomeController@users')->name('pages.users');
-Route::get('/staff', 'HomeController@staff')->name('pages.staff');
-Route::get('/staff/add', 'HomeController@add_staff')->name('pages.staff.add');
 Route::get('/ask-me', 'HomeController@ask_me')->name('pages.ask-me');
 Route::get('/money-transfer', 'HomeController@money_transfer')->name('pages.money-transfer');
 Route::get('/rabbit-team', 'HomeController@rabbit_team')->name('pages.rabbit-team');

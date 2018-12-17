@@ -167,11 +167,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'View',
-                    'route' => 'pages.staff',
+                    'route' => 'staff.index',
                 ],
         [
             'text' => 'Add',
-            'route' => 'pages.staff.add',
+            'route' => 'staff.create',
         ],
         ]
         ],
