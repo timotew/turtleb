@@ -180,11 +180,11 @@ return [
             'submenu' => [
         [
             'text' => 'View',
-            'route' => 'pages.adverts',
+            'route' => 'advert.index',
         ],
         [
             'text' => 'Add',
-            'route' => 'pages.adverts.add',
+            'route' => 'advert.create',
         ],
         ]
         ],

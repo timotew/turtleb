@@ -37,4 +37,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Offer');
     }
 
+    public function adverts()
+    {
+        return $this->hasMany('App\Advert');
+    }
+
 }

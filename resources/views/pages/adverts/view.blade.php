@@ -18,7 +18,7 @@
                                 <div class="card-box table-responsive">
                                     <h4 class="m-t-0 header-title">Advertisements List</h4>
                                     <p class="text-muted font-14 text-right">
-                                        <a href="index.php?p=advertisements-add" class="btn btn-primary waves-effect waves-light"> Advertisement <i class="fa fa-plus m-l-5"></i> </a>
+                                        <a href="{{ route('adverts.create') }}" class="btn btn-primary waves-effect waves-light"> Advertisement <i class="fa fa-plus m-l-5"></i> </a>
                                     </p>
 
 
@@ -41,24 +41,25 @@
 
 
                                         <tbody>
+                                        @foreach ($adverts as $advert)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Banner Ad</td>
+                                            <td>{{ $loop->index+1  }}</td>
+                                            <td>{{ $advert->title }}</td>
 
-                                            <td>1000</td>
-                                            <td>50000</td>
-                                            <td>500</td>
-                                            <td>258</td>
-                                            <td>100</td>
-                                            <td>Kishore</td>
-                                            <td>Kakinada</td>
+                                            <td>{{ $advert->likes }}</td>
+                                            <td>{{ $advert->views }}</td>
+                                            <td>{{ $advert->comments }}</td>
+                                            <td>{{ $advert->shares }}</td>
+                                            <td>{{ $advert->rewards }}</td>
+                                            <td>{{ $advert->user->name }}</td>
+                                            <td>{{ $advert->location }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-info" data-toggle="modal" data-target="#myModal"> <i class="fa fa-eye"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-warning" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

@@ -27,11 +27,15 @@ Route::resource('offers', 'OfferController')->names([
     'create' => 'offer.create',
     'index' => 'offer.index',
     'store' => 'offer.store'
-]);;
+]);
+
+Route::resource('adverts', 'AdvertController')->names([
+    'create' => 'advert.create',
+    'index' => 'advert.index',
+    'store' => 'advert.store'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/adverts/add', 'HomeController@add_advert')->name('pages.adverts.add');
-Route::get('/adverts', 'HomeController@view_adverts')->name('pages.adverts');
 Route::get('/users', 'HomeController@users')->name('pages.users');
 Route::get('/ask-me', 'HomeController@ask_me')->name('pages.ask-me');
 Route::get('/money-transfer', 'HomeController@money_transfer')->name('pages.money-transfer');

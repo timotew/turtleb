@@ -2,6 +2,7 @@
 
 namespace App;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Moloquent;
 
 class GoldCoin extends Moloquent
 {

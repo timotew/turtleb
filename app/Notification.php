@@ -3,6 +3,7 @@
 namespace App;
 
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Moloquent;
 
 class Notification extends Moloquent
 {

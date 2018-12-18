@@ -33,16 +33,6 @@ class HomeController extends Controller
     }
 
 
-    public function add_advert()
-    {
-        return view('pages.adverts.add');
-    }
-
-    public function view_adverts()
-    {
-        return view('pages.adverts.view');
-    }
-
     public function ask_me()
     {
         return view('pages.ask_me');
