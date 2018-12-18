@@ -21,28 +21,41 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="m-t-0 header-title">Add Special Offer</h4>
-
-
-            <form action="#">
-
+            @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+        </div>
+@endif
+@if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
+            <form action="{{ route('offer.store') }}" method="post" enctype="multipart/form-data" >
+            @csrf
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="Select User" class="col-form-label">Select User</label>
-                        <select class="form-control select2">
-                <option>Select</option>
-                <option>Kishore</option>
-                            <option>Ravi</option>
-                            <option>Aishu</option>
-
+                        <select name="user" class="form-control select2">
+                        @foreach ($users as $user)
+                        <option value="{{ $user->_id }}">{{ $user->name }}</option>
+                        @endforeach
             </select>
                     </div>
                     <div class="form-group col-md-4">
                     <label for="Ad Display Date" class="col-form-label">Offer Available Date</label>
-                        <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="10/29/2018 - 12/31/2018"/>
+                        <input class="form-control input-daterange-datepicker" type="text" name="date" value="10/29/2018 - 12/31/2018"/>
                 </div>
                     <div class="form-group col-md-4">
                         <label for="inputEmail4" class="col-form-label">Location <a href="#" data-toggle="modal" data-target="#myModal">(Select location on map)</a></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Select your location">
+                        <input  name="location" type="text" class="form-control" id="inputEmail4" placeholder="Select your location">
                     </div>
 
                 </div>
@@ -50,16 +63,16 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="Total Vouchers" class="col-form-label">Total Vouchers</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Total Vouchers Number">
+                        <input name="total_voucher" type="text" class="form-control" id="inputEmail4" placeholder="Total Vouchers Number">
 
                     </div>
                     <div class="form-group col-md-4">
                     <label for="Ad Display Date" class="col-form-label">Gold Coins to buy voucher</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Gold Coins">
+                        <input name="gold_voucher"  type="text" class="form-control" id="inputEmail4" placeholder="Gold Coins">
                 </div>
                     <div class="form-group col-md-4">
                         <label for="inputEmail4" class="col-form-label">Price to buy voucher</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Price">
+                        <input name="price_voucher" type="text" class="form-control" id="inputEmail4" placeholder="Price">
                     </div>
 
                 </div>
@@ -68,38 +81,34 @@
                 <div class="form-row">
                 <div class="form-group col-md-3">
                         <label for="inputEmail4" class="col-form-label">Offer Title</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Advertisements Title">
+                        <input name="title" type="text" class="form-control" id="inputEmail4" placeholder="Advertisements Title">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="NameValue" class="col-form-label">Name Value</label>
-                        <input type="text" class="form-control" id="NameValue" placeholder="Name Value">
+                        <input name="name_value" type="text" class="form-control" id="NameValue" placeholder="Name Value">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4" class="col-form-label">Tags</label>
-                        <input type="text" class="form-control" value="Tag 1,Tag 2,Tag 3" data-role="tagsinput" placeholder="add tags"/>
+                        <input name="tags" type="text" class="form-control"  data-role="tagsinput" placeholder="add tags"/>
                     </div>
 
 
                 </div>
                 <div class="form-group">
                     <label for="Content" class="col-form-label">Content</label>
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea name="content" class="form-control" rows="5"></textarea>
                 </div>
 
 
                 <div class="form-group col-md-6">
                                 <p class="mb-2 mt-4 font-weight-bold">Select Multiple Images and Upload</p>
-                                <input type="file" class="filestyle" data-placeholder="No files" data-btnClass="btn-light" multiple>
+                                <input name="images" type="file" class="filestyle" data-placeholder="No files" data-btnClass="btn-light" multiple>
                 </div>
 
                 <div class="form-group col-md-6">
                                 <p class="mb-2 mt-4 font-weight-bold">Upload Videos</p>
-                                <input type="file" class="filestyle" data-placeholder="No files" data-btnClass="btn-light" multiple>
+                                <input name="videos" type="file" class="filestyle" data-placeholder="No files" data-btnClass="btn-light" multiple>
                 </div>
-
-
-
-
 
 
                 <button type="submit" class="btn btn-primary">Publish Offer</button>

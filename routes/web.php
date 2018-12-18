@@ -21,6 +21,12 @@ Route::resource('staff', 'AdminController')->names([
     'create' => 'staff.create',
     'index' => 'staff.index',
     'store' => 'staff.store'
+]);
+
+Route::resource('offers', 'OfferController')->names([
+    'create' => 'offer.create',
+    'index' => 'offer.index',
+    'store' => 'offer.store'
 ]);;
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -50,5 +56,3 @@ Route::get('/spam', 'HomeController@spam')->name('pages.spam');
 Route::get('/social-circle-articles', 'HomeController@social_circle_articles')->name('pages.social-circle.articles');
 Route::get('/social-circle-categories', 'HomeController@social_circle_categories')->name('pages.social-circle.categories');
 Route::get('/level-chart', 'HomeController@level_chart')->name('pages.level-chart');
-Route::get('/special-offers', 'HomeController@special_offers')->name('pages.special-offers');
-Route::get('/special-offers/add', 'HomeController@add_special_offers')->name('pages.special-offers.add');

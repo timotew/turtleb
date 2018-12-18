@@ -20,7 +20,7 @@
              <p class="text-muted font-14">
                  <a href="merchant-view.php" class="btn btn-dark waves-effect waves-light float-left"> Merchant View <i class="fa fa-user-secret m-l-5"></i> </a>
 
-                 <a href="index.php?p=special-offer-add" class="btn btn-primary waves-effect waves-light float-right"> Add Special Offer <i class="fa fa-plus m-l-5"></i> </a>
+                 <a href="{{ route('offer.create') }}" class="btn btn-primary waves-effect waves-light float-right"> Add Special Offer <i class="fa fa-plus m-l-5"></i> </a>
 
                  <div class="clearfix"></div>
              </p>
@@ -43,13 +43,14 @@
 
 
                  <tbody>
+                 @foreach ($offers as $offer)
                  <tr>
-                     <td>1</td>
-                     <td>Special offer</td>
-                     <td>Krish</td>
-                     <td>Kakinada</td>
-                     <td>31-12-2018</td>
-                     <td>1000</td>
+                 <td>{{ $loop->index+1  }}</td>
+                     <td>{{ $offer->title }}</td>
+                     <td>{{ $offer->user->name }}</td>
+                     <td>{{ $offer->location }}</td>
+                     <td>{{ $offer->endDate }}</td>
+                     <td>{{ $offer->total_voucher }}</td>
                      <td>
                          <div class="btn-group">
                              <button type="button" class="btn btn-sm btn-light dropdown-toggle waves-effect" data-toggle="dropdown" aria-expanded="false"> Status <span class="caret"></span> </button>
@@ -65,6 +66,8 @@
                          <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
                      </td>
                  </tr>
+                @endforeach
+
 
                  </tbody>
              </table>

@@ -48,15 +48,6 @@ class HomeController extends Controller
         return view('pages.ask_me');
     }
 
-    public function special_offers()
-    {
-        return view('pages.special_offers.view');
-    }
-
-    public function add_special_offers()
-    {
-        return view('pages.special_offers.add');
-    }
 
     public function properties()
     {

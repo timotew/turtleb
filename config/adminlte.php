@@ -193,11 +193,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'View',
-                    'route' => 'pages.special-offers',
+                    'route' => 'offer.index',
                 ],
                 [
                     'text' => 'Add',
-                    'route' => 'pages.special-offers.add',
+                    'route' => 'offer.create',
                 ],
                 ]
         ],
