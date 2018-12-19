@@ -135,16 +135,7 @@ class AdminController extends Controller
      */
     public function edit(User $User)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        if ($request->hasFile('picture')) {
-            $advert->image = $request->file('picture')->store('pictures/admin');
-        }
-        if ($user->save()) {
-            return redirect()->back()->with('success', 'Account Updated Successfully!');
-        }
+
         //
     }
 
@@ -158,6 +149,19 @@ class AdminController extends Controller
     public function update(Request $request, User $User)
     {
         //
+        $user = User::where('email', $request->email)->first();
+        if(!$user) {
+            return Redirect::back()->withErrors(['Unknown User']);
+        }
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        if ($request->hasFile('picture')) {
+            $user->image = $request->file('picture')->store('pictures/admin');
+        }
+        if ($user->save()) {
+            return redirect()->back()->with('success', 'Account Updated Successfully!');
+        }
     }
 
     /**

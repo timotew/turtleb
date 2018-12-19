@@ -17,8 +17,24 @@
      <div class="col-6">
          <div class="card-box">
              <h4 class="m-t-0 m-b-30 header-title">Personal Details</h4>
-
+             @if(count($errors) > 0)
+              <div class="alert alert-danger" >
+                  <button type="button" class="close" data-dismiss="alert"aria-hidden="true">×</button>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </div>
+                @endif
+                @if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
              <form class="form-horizontal" action="{{ route('admin.update', $user->_id) }}" method="post" enctype="multipart/form-data">
+             @csrf
+             @method('PUT')
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Admin Username</label>
                                  <div class="col-8">

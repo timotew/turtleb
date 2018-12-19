@@ -47,7 +47,12 @@
                      <td>{{ $user->name }}</td>
                      <td>{{ $user->phone }}</td>
                      <td>{{ $user->email }}</td>
-                     <td></td>
+                     <td>
+                    Users: read: {{  $user->readUsers == 'true' ? 'Yes' : 'No'  }}, write: {{  $user->writeUsers == 'true' ? 'Yes' : 'No'  }}<br/>
+                    Adverts: read: {{  $user->readAdverts == 'true' ? 'Yes' : 'No'  }}, write: {{  $user->writeAdverts == 'true' ? 'Yes' : 'No'  }}<br/>
+                    Offers: read: {{  $user->readOffers == 'true' ? 'Yes' : 'No'  }}, write: {{  $user->writeOffers == 'true' ? 'Yes' : 'No'  }}<br/>
+                    Silver Coin: read: {{  $user->readCoin == 'true' ? 'Yes' : 'No'  }}, write: {{  $user->writeCoin == 'true' ? 'Yes' : 'No'  }}<br/>
+                     </td>
                      <td>{{ $user->lastLogin }}</td>
                      <td>
                          <button type="button" class="btn btn-sm btn-light waves-effect">Disable</button>
