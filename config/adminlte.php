@@ -142,19 +142,6 @@ return [
             'route' => 'pages.level-chart',
         ],
         [
-            'text' => 'Add Notification',
-            'submenu' => [
-                [
-                    'text' => 'Email Notifications',
-                    'route' => 'pages.notifications.add.email',
-                ],
-                [
-                    'text' => 'Push Notification',
-                    'route' => 'pages.notifications.add.push',
-                ]
-            ]
-        ],
-        [
             'text' => 'Products',
             'route' => 'pages.products',
         ],
@@ -255,17 +242,16 @@ return [
             'submenu' => [
                 [
                     'text' => 'Email Notifications',
-                    'route'  => 'pages.notifications.email',
+                    'route'  => 'notification.email.index',
 
                 ],
                 [
                     'text' => 'Push Notifications',
-                    'route'  => 'pages.notifications.push',
+                    'route'  => 'notification.push.index',
 
                 ],
             ]
         ],
-
         [
             'text' => 'Change Password',
             'url'  => 'admin/settings',

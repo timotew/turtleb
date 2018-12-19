@@ -18,27 +18,38 @@
 
                                     <h4 class="m-t-0 header-title">Email Notifications</h4>
                                     <p class="text-muted font-14 text-right">
-                                        <a href="index.php?p=notification-add" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
+                                        <a href="{{ route('notification.email.create') }}" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
                                     </p>
-
-
-
-
-
-                                    <form role="form">
+                                    @if(count($errors) > 0)
+              <div class="alert alert-danger" >
+                  <button type="button" class="close" data-dismiss="alert"aria-hidden="true">×</button>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </div>
+                @endif
+                @if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
+                                    <form role="form" action="{{ route('notification.email.store') }}" method="post">
+                                        @csrf
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="To">
+                                                    <input name="email" type="email" class="form-control" placeholder="To">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Subject">
+                                                    <input name="subject" type="text" class="form-control" placeholder="Subject">
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="summernote">
+                                                    <textarea name="body" class="summernote">
 
 
 
-                                                    </div>
+                                                    </textarea>
                                                 </div>
 
                                                 <div class="form-group m-b-0">

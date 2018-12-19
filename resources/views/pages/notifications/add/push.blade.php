@@ -18,17 +18,28 @@
 
                                     <h4 class="m-t-0 header-title">Push Notifications</h4>
                                     <p class="text-muted font-14 text-right">
-                                        <a href="index.php?p=notification-add" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
+                                        <a href="{{  route('notification.push.create') }}" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
                                     </p>
-
-
-
-
-
-                                    <form role="form">
+                                    @if(count($errors) > 0)
+              <div class="alert alert-danger" >
+                  <button type="button" class="close" data-dismiss="alert"aria-hidden="true">×</button>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </div>
+                @endif
+                @if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+@endif
+                                    <form role="form" action="{{ route('notification.push.store') }}" method="post">
+                                        @csrf
                                                 <div class="form-group">
                                                    <!--  <input type="email" class="form-control" placeholder="To"> -->
-                                                    <select class="form-control">
+                                                    <select name="platform" class="form-control">
                                                                 <option>All</optlion>
                                                                 <option>Android</option>
                                                                 <option>IOS</option>
@@ -36,10 +47,10 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Subject">
+                                                    <input name="subject" type="text" class="form-control" placeholder="Subject">
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" rows="5" placeholder="Type Notification Here..."></textarea>
+                                                    <textarea name="body" class="form-control" rows="5" placeholder="Type Notification Here..."></textarea>
                                                 </div>
 
                                                 <div class="form-group m-b-0">

@@ -44,6 +44,18 @@ Route::resource('adverts', 'AdvertController')->names([
     'store' => 'advert.store'
 ]);
 
+Route::resource('notification-email', 'EmailNotificationController')->names([
+    'create' => 'notification.email.create',
+    'index' => 'notification.email.index',
+    'store' => 'notification.email.store'
+]);
+
+Route::resource('notification-push', 'PushNotificationController')->names([
+    'create' => 'notification.push.create',
+    'index' => 'notification.push.index',
+    'store' => 'notification.push.store'
+]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'HomeController@users')->name('pages.users');
 Route::get('/ask-me', 'HomeController@ask_me')->name('pages.ask-me');
@@ -52,10 +64,6 @@ Route::get('/rabbit-team', 'HomeController@rabbit_team')->name('pages.rabbit-tea
 Route::get('/rabbit-team-post', 'HomeController@rabbit_team_post')->name('pages.rabbit-team-post');
 Route::get('/properties', 'HomeController@properties')->name('pages.properties');
 Route::get('/wallet', 'HomeController@wallet')->name('pages.wallet');
-Route::get('/notifications/email', 'HomeController@notifications_email')->name('pages.notifications.email');
-Route::get('/notifications/push', 'HomeController@notifications_push')->name('pages.notifications.push');
-Route::get('/notifications/add/email', 'HomeController@notification_add_email')->name('pages.notifications.add.email');
-Route::get('/notifications/add/push', 'HomeController@notification_add_push')->name('pages.notifications.add.push');
 Route::get('/products', 'HomeController@products')->name('pages.products');
 Route::get('/moments', 'HomeController@moments')->name('pages.moments');
 Route::get('/chats', 'HomeController@chats')->name('pages.chats');

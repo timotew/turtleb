@@ -18,7 +18,7 @@
 
                                     <h4 class="m-t-0 header-title">Push Notifications</h4>
                                     <p class="text-muted font-14 text-right">
-                                        <a href="index.php?p=push-add" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
+                                        <a href="{{ route('notification.push.create') }}" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
                                     </p>
 
 
@@ -35,39 +35,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach ($notifications as $notification)
                                         <tr>
-                                            <td>Notification for IOS</th>
-                                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit....</td>
-                                            <td>IOS</td>
+                                            <td>{{ $notification->subject }}</th>
+                                            <td>{{ $notification->content }}</td>
+                                            <td>{{ $notification->platform }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-info"> <i class="fa fa-eye"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-warning"> <i class="fa fa-edit"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>Notification for Android</th>
-                                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit....</td>
-                                            <td>Android</td>
-                                            <td>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-info"> <i class="fa fa-eye"></i> </button>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-warning"> <i class="fa fa-edit"></i> </button>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Notification For All</th>
-                                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit....</td>
-                                            <td>Android, IOS</td>
-                                            <td>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-info"> <i class="fa fa-eye"></i> </button>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-warning"> <i class="fa fa-edit"></i> </button>
-                                                <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
-                                            </td>
-                                        </tr>
-
-
+                                        @endforeach
                                         </tbody>
                                     </table>
 

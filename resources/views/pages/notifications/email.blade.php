@@ -18,7 +18,7 @@
 
                                     <h4 class="m-t-0 header-title">Email Notifications</h4>
                                     <p class="text-muted font-14 text-right">
-                                        <a href="index.php?p=notifiacation-add" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
+                                        <a href="{{ route('notification.email.create') }}" class="btn btn-primary waves-effect waves-light"> Add Notification <i class="fa fa-plus m-l-5"></i> </a>
                                     </p>
 
 
@@ -34,16 +34,17 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach ($notifications as $notification)
                                         <tr>
-                                            <td>Hi Bro, How are you?</th>
-                                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit....</td>
+                                            <td>{{ $notification->subject }}</th>
+                                            <td>{{ $notification->content }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-info"> <i class="fa fa-eye"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-warning"> <i class="fa fa-edit"></i> </button>
                                                 <button type="button" class="btn btn-sm btn-icon waves-effect btn-danger"> <i class="fa fa-trash-o"></i> </button>
                                             </td>
                                         </tr>
-
+                                        @endforeach
 
                                         </tbody>
                                     </table>

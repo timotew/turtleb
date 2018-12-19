@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Notification;
 use Illuminate\Http\Request;
+use Redirect;
 
-class NotificationController extends Controller
+class PushNotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,8 @@ class NotificationController extends Controller
     public function index()
     {
         //
+        $notifications = Notification::where('type', 'push')->get();
+        return view('pages.notifications.push', compact('notifications'));
     }
 
     /**
@@ -25,6 +28,7 @@ class NotificationController extends Controller
     public function create()
     {
         //
+        return view('pages.notifications.add.push');
     }
 
     /**
@@ -35,6 +39,16 @@ class NotificationController extends Controller
      */
     public function store(Request $request)
     {
+        $notification = new Notification;
+        $notification->type = 'push';
+        $notification->platform = $request->platform;
+        $notification->content = $request->content;
+        $notification->subject = $request->subject;
+        if ($notification->save()) {
+            return redirect()->back()->with('success', 'Notification Created Successfully!');
+        } else {
+            return Redirect::back()->withErrors(['Unable to create Notification!']);
+        }
         //
     }
 

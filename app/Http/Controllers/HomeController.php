@@ -105,16 +105,6 @@ class HomeController extends Controller
         return view('pages.notifications.push');
     }
 
-    public function notification_add_email()
-    {
-        return view('pages.notifications.add.email');
-    }
-
-    public function notification_add_push()
-    {
-        return view('pages.notifications.add.push');
-    }
-
     public function money_transfer()
     {
         return view('pages.money_transfer');
