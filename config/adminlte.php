@@ -223,7 +223,7 @@ return [
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'route'  => 'pages.profile',
+            'route'  => 'profile',
 
         ],
         [

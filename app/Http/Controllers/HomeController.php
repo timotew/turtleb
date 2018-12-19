@@ -89,10 +89,6 @@ class HomeController extends Controller
         return view('pages.spam');
     }
 
-    public function profile()
-    {
-        return view('pages.profile');
-    }
 
     public function wallet()
     {

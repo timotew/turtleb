@@ -6,20 +6,14 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Redirect;
-use Auth;
-use Illuminate\Support\Facades\Storage;
 
-class AdminController extends Controller
+class StaffController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
     public function index()
     {
         //
-        $users = User::where('role', 'admin')->get();
+        $users = User::where('role', 'staff')->get();
         return view('pages.staff.view', compact('users'));
     }
 
@@ -35,31 +29,7 @@ class AdminController extends Controller
         return view('pages.staff.add');
     }
 
-    public function profile()
-    {
-      $user = Auth::user();
-      return view('pages.profile', compact('user'));
-    }
-
-    public function profile_password(Request $request)
-    {
-      $old_password = $request->old_password;
-      $new_password = $request->new_password;
-      $confirm_password = $request->confirm_password;
-      if($new_password != $confirm_password) {
-        return Redirect::back()->withErrors(['Password Doesn\'t Match!']);
-      }
-      $user = Auth::user();
-      if (!auth()->attempt(['email'=> $user->email, 'password'=> $old_password])) {
-        return Redirect::back()->withErrors(['Password Doesn\'t Match!']);
-      }
-      $user->password = bcrypt($new_password);
-      if ($user->save()) {
-      return redirect()->back()->with('success', 'Account Updated Successfully!');
-      }
-    }
-
-    /**
+        /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -74,7 +44,7 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,7 +61,7 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->role = 'admin';
+        $user->role = 'staff';
         $user->password =  bcrypt($request->password);
         if ($request->users) {
         $user->readUsers = isset($request->users->read) ? true: false;
@@ -135,16 +105,6 @@ class AdminController extends Controller
      */
     public function edit(User $User)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        if ($request->hasFile('picture')) {
-            $advert->image = $request->file('picture')->store('pictures/admin');
-        }
-        if ($user->save()) {
-            return redirect()->back()->with('success', 'Account Updated Successfully!');
-        }
         //
     }
 
@@ -170,4 +130,5 @@ class AdminController extends Controller
     {
         //
     }
+
 }

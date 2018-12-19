@@ -17,10 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('staff', 'AdminController')->names([
+Route::get('/profile', 'AdminController@profile')->name('profile');
+Route::post('/profile/password', 'AdminController@profile_password')->name('profile.password');
+
+Route::resource('staff', 'StaffController')->names([
     'create' => 'staff.create',
     'index' => 'staff.index',
     'store' => 'staff.store'
+]);
+
+Route::resource('admin', 'AdminController')->names([
+    'create' => 'admin.create',
+    'index' => 'admin.index',
+    'store' => 'admin.store',
 ]);
 
 Route::resource('offers', 'OfferController')->names([
@@ -42,7 +51,6 @@ Route::get('/money-transfer', 'HomeController@money_transfer')->name('pages.mone
 Route::get('/rabbit-team', 'HomeController@rabbit_team')->name('pages.rabbit-team');
 Route::get('/rabbit-team-post', 'HomeController@rabbit_team_post')->name('pages.rabbit-team-post');
 Route::get('/properties', 'HomeController@properties')->name('pages.properties');
-Route::get('/profile', 'HomeController@profile')->name('pages.profile');
 Route::get('/wallet', 'HomeController@wallet')->name('pages.wallet');
 Route::get('/notifications/email', 'HomeController@notifications_email')->name('pages.notifications.email');
 Route::get('/notifications/push', 'HomeController@notifications_push')->name('pages.notifications.push');

@@ -18,40 +18,40 @@
          <div class="card-box">
              <h4 class="m-t-0 m-b-30 header-title">Personal Details</h4>
 
-             <form class="form-horizontal" action="#">
+             <form class="form-horizontal" action="{{ route('admin.update', $user->_id) }}" method="post" enctype="multipart/form-data">
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Admin Username</label>
                                  <div class="col-8">
-                                     <input type="text" class="form-control" readonly="" value="Username">
+                                     <input name="email" type="email" value="{{ $user->email }}" class="form-control" readonly="" value="Username">
                                  </div>
                              </div>
 
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Name</label>
                                  <div class="col-8">
-                                     <input type="text" class="form-control" value="Name">
+                                     <input name="name" value="{{ $user->name }}" required type="text" class="form-control" value="Name">
                                  </div>
                              </div>
-                             <div class="form-group row">
+                             <!-- <div class="form-group row">
                                  <label class="col-4 col-form-label" for="example-email">Email</label>
                                  <div class="col-8">
                                      <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
                                  </div>
-                             </div>
+                             </div> -->
 
 
 
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Phone Number</label>
                                  <div class="col-md-8">
-                                     <input class="form-control" type="number" name="number"placeholder="Phone Number">
+                                     <input value="{{ $user->phone }}" class="form-control" type="number" name="phone" required placeholder="Phone Number">
                                  </div>
                              </div>
 
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Profile Image</label>
                                  <div class="col-md-8">
-                                     <input type="file" class="filestyle" data-placeholder="No file" data-btnClass="btn-light">
+                                     <input name="picture" type="file" class="filestyle" data-placeholder="No file" data-btnClass="btn-light">
                                  </div>
                              </div>
 
@@ -76,25 +76,25 @@
          <div class="card-box table-responsive">
              <h4 class="m-t-0 m-b-30 header-title">Change Password</h4>
 
-             <form class="form-horizontal" action="#">
+             <form class="form-horizontal" action="{{ route('profile.password') }}" method="post" >
 
 
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Old Password</label>
                                  <div class="col-8">
-                                     <input type="password" class="form-control">
+                                     <input name="old_password" type="password" class="form-control">
                                  </div>
                              </div>
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">New Password</label>
                                  <div class="col-8">
-                                     <input type="password" class="form-control">
+                                     <input name="new_password" type="password" class="form-control">
                                  </div>
                              </div>
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Confirm Password</label>
                                  <div class="col-8">
-                                     <input type="password" class="form-control">
+                                     <input name="confirm_password" type="password" class="form-control">
                                  </div>
                              </div>
 
