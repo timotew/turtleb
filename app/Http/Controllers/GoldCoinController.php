@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\GoldCoin;
 use Illuminate\Http\Request;
+use Redirect;
 
 class GoldCoinController extends Controller
 {
@@ -15,6 +16,8 @@ class GoldCoinController extends Controller
     public function index()
     {
         //
+        $coins = GoldCoin::all();
+        return view('pages.gold_coin', compact('coins'));
     }
 
     /**
@@ -36,6 +39,15 @@ class GoldCoinController extends Controller
     public function store(Request $request)
     {
         //
+        $coin = new GoldCoin;
+        $coin->unit = $request->unit;
+        $coin->amount = $request->amount;
+        $coin->title = $request->title;
+        if ($coin->save()) {
+            return redirect()->back()->with('success', 'Package Successfully!');
+        } else{
+            return Redirect::back()->withErrors(['Unable to create Package!']);
+        }
     }
 
     /**

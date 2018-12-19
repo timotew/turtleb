@@ -56,6 +56,12 @@ Route::resource('notification-push', 'PushNotificationController')->names([
     'store' => 'notification.push.store'
 ]);
 
+Route::resource('gold-coin', 'GoldCoinController')->names([
+    'create' => 'gold-coin.create',
+    'index' => 'gold-coin.index',
+    'store' => 'gold-coin.store'
+]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'HomeController@users')->name('pages.users');
 Route::get('/ask-me', 'HomeController@ask_me')->name('pages.ask-me');
@@ -69,7 +75,6 @@ Route::get('/moments', 'HomeController@moments')->name('pages.moments');
 Route::get('/chats', 'HomeController@chats')->name('pages.chats');
 Route::get('/contents', 'HomeController@contents')->name('pages.contents');
 Route::get('/conversion', 'HomeController@conversion')->name('pages.conversion');
-Route::get('/packages', 'HomeController@packages')->name('pages.packages');
 Route::get('/vouchers', 'HomeController@vouchers')->name('pages.vouchers');
 Route::get('/purchased', 'HomeController@purchased')->name('pages.purchased');
 Route::get('/spam', 'HomeController@spam')->name('pages.spam');

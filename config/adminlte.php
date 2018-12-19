@@ -126,8 +126,8 @@ return [
             'route' => 'pages.conversion',
         ],
         [
-            'text' => 'Packages',
-            'route' => 'pages.packages',
+            'text' => 'Gold Coin',
+            'route' => 'gold-coin.index',
         ],
         [
             'text' => 'Vouchers',

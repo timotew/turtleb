@@ -54,11 +54,6 @@ class HomeController extends Controller
         return view('pages.conversion');
     }
 
-    public function packages()
-    {
-        return view('pages.packages');
-    }
-
     public function vouchers()
     {
         return view('pages.vouchers');
