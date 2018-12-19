@@ -93,7 +93,7 @@
              <h4 class="m-t-0 m-b-30 header-title">Change Password</h4>
 
              <form class="form-horizontal" action="{{ route('profile.password') }}" method="post" >
-
+             @csrf
 
                              <div class="form-group row">
                                  <label class="col-4 col-form-label">Old Password</label>

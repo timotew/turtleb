@@ -64,20 +64,20 @@ class StaffController extends Controller
         $user->role = 'staff';
         $user->password =  bcrypt($request->password);
         if ($request->users) {
-        $user->readUsers = isset($request->users->read) ? true: false;
-        $user->writeUsers = isset($request->users->write) ? true: false ;
+        $user->readUsers = isset($request->users['read']) ? true: false;
+        $user->writeUsers = isset($request->users['write']) ? true: false ;
         }
         if ($request->adverts) {
-        $user->readAdverts = isset($request->adverts->read) ? true: false;
-        $user->writeAdverts =  isset($request->adverts->write) ? true: false;
+        $user->readAdverts = isset($request->adverts['read']) ? true: false;
+        $user->writeAdverts =  isset($request->adverts['write']) ? true: false;
         }
         if ($request->offers) {
-        $user->readOffers = isset($request->offers->read) ? true: false ;
-        $user->writeOffers = isset($request->offers->write) ? true: false ;
+        $user->readOffers = isset($request->offers['read']) ? true: false ;
+        $user->writeOffers = isset($request->offers['write']) ? true: false ;
         }
         if ($request->coin) {
-        $user->readCoin = isset($request->coin->read) ? true: false;
-        $user->writeCoin = isset($request->coin->write) ? true: false;
+        $user->readCoin = isset($request->coin['read']) ? true: false;
+        $user->writeCoin = isset($request->coin['write']) ? true: false;
         }
 
         if ($user->save()) {
